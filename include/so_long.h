@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:38:08 by amantara          #+#    #+#             */
-/*   Updated: 2022/03/15 21:05:03 by amantara         ###   ########.fr       */
+/*   Updated: 2022/03/18 23:43:45 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "libft.h"
+#include "../libft/libft.h"
 #include <stdio.h>
-#include <libft.h>
 #include <fcntl.h>
 
 typedef struct s_game {
@@ -39,7 +38,7 @@ typedef struct s_global {
 	//exit
 	//flor
 	//object
-}	type_global
+}	type_global;
 
 void	error_parameters();
 void	error_filename();
