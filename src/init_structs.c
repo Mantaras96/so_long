@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_structs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
+/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 19:02:07 by amantara          #+#    #+#             */
-/*   Updated: 2022/03/25 16:46:49 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/03/25 16:52:30 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
-#include "../libft/libft.h"
+#include "so_long.h"
 
 type_global	*init_global(int fd)
 {

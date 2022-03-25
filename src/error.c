@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
+/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 23:23:18 by albertmanta       #+#    #+#             */
-/*   Updated: 2022/03/25 16:14:56 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/03/25 16:52:27 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "so_long.h"
 
 void error_parameters(){
     ft_putstr_fd("Numero de parametros incorrecto", 1);

@@ -4,7 +4,7 @@ FLAGS		=	-Wall -Wextra -Werror
 MLX			=	mlx/Makefile.gen
 LFT			=	libft/libft.a
 INC			=	-I ./include -I ./libft
-LIB			=	-L ./libft
+LIB			=	-L ./libft -lft
 OBJ			=	$(patsubst src%, obj%, $(SRC:.c=.o))
 SRC			=	src/error.c \
 				src/init_structs.c \
@@ -13,7 +13,7 @@ SRC			=	src/error.c \
 all:		$(LFT) obj $(NAME)
 
 $(NAME):	$(OBJ)
-			$(CC) -fsanitize=address -o $@ $^ $(LIB)
+			$(CC) $(FLAGS)  -fsanitize=address -o $@ $^ $(LIB)
 
 $(LFT):		
 			@echo " [ .. ] | Compiling libft.."
