@@ -1,22 +1,41 @@
-OBJECTS = $(SOURCES:.c=.o)
+NAME		=	so_long
+CC			=	gcc
+FLAGS		=	-Wall -Wextra -Werror
+MLX			=	mlx/Makefile.gen
+LFT			=	libft/libft.a
+INC			=	-I ./include -I ./libft
+LIB			=	-L ./libft
+OBJ			=	$(patsubst src%, obj%, $(SRC:.c=.o))
+SRC			=	src/error.c \
+				src/init_structs.c \
+				src/main.c
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+all:		$(LFT) obj $(NAME)
 
-libft:
-	make -C libft
+$(NAME):	$(OBJ)
+			$(CC) -fsanitize=address -o $@ $^ $(LIB)
+
+$(LFT):		
+			@echo " [ .. ] | Compiling libft.."
+			@make -s -C libft
+			@echo " [ OK ] | Libft ready!"
+
+obj:
+			@mkdir -p obj
+
+obj/%.o:	src/%.c
+			$(CC) $(FLAGS) $(INC) -o $@ -c $<
 
 clean:
-	make -C libft clean
-	
-fclean: clean
-	rm -f libft/libft.a
+			@make -s $@ -C libft
+			@rm -rf $(OBJ) obj
+			@echo "object files removed."
 
-re: fclean all
+fclean:		clean
+			@make -s $@ -C libft
+			@rm -rf $(NAME)
+			@echo "binary file removed."
 
-git:
-  git add .
-  git commit -m "Automatic commit fron makefile"
-  git push
+re:			fclean all
 
-.PHONY: all bonus libft clean fclean re
+.PHONY:		all clean fclean re

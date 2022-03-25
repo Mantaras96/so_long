@@ -1,0 +1,27 @@
+NAME =	so_long
+SRC =	src/error.c \
+		src/init_structs.c \
+		src/main.c \
+		42gnl/get_next_line.c \
+		42gnl/get_next_line_utils.c 
+OBJ = $(src:%.c=%.o)
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+
+$(NAME): $(OBJ)
+	make -C libft
+	ar rc $(NAME) $(SRC) $(OBJ)
+
+clean:
+	rm -f $(OBJ) src/*.o
+	make -C libft clean
+	
+fclean: clean
+	rm -f libft/libft.a
+
+re: fclean all
+
+prove:
+	CC $(SRC) libft/*.c && ./a.out
+
+.PHONY: all bonus libft clean fclean re
