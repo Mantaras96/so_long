@@ -6,7 +6,7 @@
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 19:02:07 by amantara          #+#    #+#             */
-/*   Updated: 2022/03/25 16:52:30 by amantara         ###   ########.fr       */
+/*   Updated: 2022/03/26 00:22:42 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ void    *init_game(type_global *global, int fd)
     global->game->map = 0;
     global->game->height = 0;
     global->game->width = 0;
+	global->game->count_coll = 0;
+	global->game->count_exit = 0;
+	global->game->count_player = 0;
+	
 	init_game_map(global, fd);
 
 	return(0);
@@ -47,6 +51,10 @@ int init_game_map(type_global *global, int fd){
 		return(0);
 	}
 	read_file(global, &file, fd);
+	get_width(global, file);
+	get_height(global, file);
+	map_is_valid(global, file);
+	printf("%s", file);
 	return (0);
 }
 

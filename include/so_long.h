@@ -6,7 +6,7 @@
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:38:08 by amantara          #+#    #+#             */
-/*   Updated: 2022/03/25 16:51:36 by amantara         ###   ########.fr       */
+/*   Updated: 2022/03/26 15:29:40 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,37 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include "libft.h"
+# include "../libft/libft.h"
+# include "../gnl/get_next_line.h"
 
-typedef struct s_game {
-	int		**map;
-	int		height;
-	int		width;
-		
-}	type_game;
+typedef struct s_corde
+{
+	int		x;
+	int		y;
+}	t_corde;
 
-typedef struct s_global {
-	type_game			*game;
-}	type_global;
+typedef struct s_global
+{
+	void		*mlx;
+	void		*win;
+	void		**img;
+	char		**map;
+	int			width;
+	int			height;
+	int			collect;
+	int			movements;
+	t_corde		character;
+}	t_global;
 
-void	error_parameters();
-void	error_filename();
-void	error_openingfile();
 
-int check_and_get_map(char *filename);
-type_global	*init_global(int fd);
-void    *init_game(type_global *global, int fd);
-int init_game_map(type_global *global, int fd);
-void read_file(type_global *global, char **file, int fd);
+void show_error_msg( char *str);
+
+char **validate_and_read_map(char *filename);
+
+char **read_map(char *filename);
+int	array_str_count(char **arr);
+int ft_validate_name(char *filename);
+char	**arr_push(char **arr, char *str);
+
 
 #endif
