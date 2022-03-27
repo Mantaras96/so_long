@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_structs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 19:02:07 by amantara          #+#    #+#             */
-/*   Updated: 2022/03/26 00:22:42 by amantara         ###   ########.fr       */
+/*   Updated: 2022/03/27 20:03:24 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

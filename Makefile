@@ -8,6 +8,7 @@ LIB			=	-L ./libft -lft
 OBJ			=	$(patsubst src%, obj%, $(SRC:.c=.o))
 SRC			=	src/main.c \
 				src/validate_and_read_map.c \
+				src/validate_letters_map.c \
 				src/error.c \
 				gnl/get_next_line_utils.c \
 				gnl/get_next_line.c

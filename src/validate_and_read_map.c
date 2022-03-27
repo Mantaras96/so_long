@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_and_read_map.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 23:22:17 by albertmanta       #+#    #+#             */
-/*   Updated: 2022/03/26 15:29:33 by amantara         ###   ########.fr       */
+/*   Updated: 2022/03/27 19:56:32 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,14 @@ char **read_map(char *filename){
 	char	**map;
 	char	*line;
 	int		fd;
-	int		i;
 
-	i = 0;
 	fd = open(filename, O_RDONLY);
 	if (fd == -1){
 		show_error_msg("La ruta del mapa no es correcta");
 	}
 	map = ft_calloc(sizeof(char *), 1);
 	if (map == NULL)
-	show_error_msg("Memory error\n");
+	show_error_msg("Error de memoria.\n");
 	while (1)
 	{
 		line = get_next_line(fd);

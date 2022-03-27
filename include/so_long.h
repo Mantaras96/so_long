@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:38:08 by amantara          #+#    #+#             */
-/*   Updated: 2022/03/26 15:29:40 by amantara         ###   ########.fr       */
+/*   Updated: 2022/03/28 00:00:14 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ typedef struct s_global
 	int			collect;
 	int			movements;
 	t_corde		character;
+	int			count_coll;
+	int			count_exit;
+	int			count_player;
+    int			count_jumpline;
 }	t_global;
 
 
@@ -48,5 +52,9 @@ int	array_str_count(char **arr);
 int ft_validate_name(char *filename);
 char	**arr_push(char **arr, char *str);
 
+void validate_letters_map(t_global *global);
+void read_line(char *map, t_global *global);
+void validate_rectangle_walls(t_global *global);
+void validate_all_leters(t_global *global);
 
 #endif
