@@ -6,7 +6,7 @@
 /*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:38:08 by amantara          #+#    #+#             */
-/*   Updated: 2022/03/28 00:00:14 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/03/28 22:45:31 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,18 @@
 # include "../libft/libft.h"
 # include "../gnl/get_next_line.h"
 
+# define SIZE_TEXTURE 32
 typedef struct s_corde
 {
 	int		x;
 	int		y;
+	char	direction;
 }	t_corde;
 
 typedef struct s_global
 {
 	void		*mlx;
-	void		*win;
+	void		*window;
 	void		**img;
 	char		**map;
 	int			width;
@@ -56,5 +58,12 @@ void validate_letters_map(t_global *global);
 void read_line(char *map, t_global *global);
 void validate_rectangle_walls(t_global *global);
 void validate_all_leters(t_global *global);
+
+int	get_total_img(t_global *global);
+void	**create_img_arr(t_global *global);
+
+void show_map(t_global *global);
+void set_mlx_and_window(t_global *global);
+
 
 #endif
