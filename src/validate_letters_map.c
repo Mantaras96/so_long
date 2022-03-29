@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   validate_letters_map.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
+/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 20:05:15 by albertmanta       #+#    #+#             */
-/*   Updated: 2022/03/28 00:13:34 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/03/29 19:43:53 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void validate_rectangle_walls(t_global *global){
     int i;
@@ -27,7 +27,6 @@ void validate_rectangle_walls(t_global *global){
             if (i == 0 || i == global->height - 1)
             {
                 if (global->map[i][j] != '1' && global->map[i][j] != '\n'){
-                    printf("Bicho:%d Linea:%d", global->map[i][j], i);
                     show_error_msg("Error pareder ultima primera linea");
                 }    
             } else if (j == 0 || j == global->width - 2) {
@@ -42,12 +41,9 @@ void validate_rectangle_walls(t_global *global){
 
 void read_line(char *map, t_global *global){
     int i;
-    printf("Linia:%s\n", map);
     i = 0;
+    
     while(map[i]) {
-         write(1, "Valor:", 6);
-        write(1, &map[i], 1);
-        write(1, "\n", 1);
         if (map[i] == 'E')
             global->count_exit++;
         else if (map[i] == 'C')

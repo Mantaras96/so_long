@@ -3,23 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
+/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:38:08 by amantara          #+#    #+#             */
-/*   Updated: 2022/03/28 22:45:31 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/03/29 20:59:31 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+
+
+# include <fcntl.h>
+# include <sys/types.h>
+# include <sys/uio.h>
+# include <unistd.h>
+
+
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include "../libft/libft.h"
 # include "../gnl/get_next_line.h"
+# include "../mlx/mlx.h"
+
 
 # define SIZE_TEXTURE 32
+
+# defin
 typedef struct s_corde
 {
 	int		x;

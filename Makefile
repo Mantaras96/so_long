@@ -1,44 +1,43 @@
-NAME		=	so_long
-CC			=	gcc
-FLAGS		=	-Wall -Wextra -Werror
-MLX			=	mlx/Makefile.gen
-LFT			=	libft/libft.a
-INC			=	-I ./include -I ./libft
-LIB			=	-L ./libft -lft
-OBJ			=	$(patsubst src%, obj%, $(SRC:.c=.o))
-SRC			=	src/main.c \
-				src/validate_and_read_map.c \
-				src/validate_letters_map.c \
-				src/show_map.c \
-				src/error.c \
-				gnl/get_next_line_utils.c \
-				gnl/get_next_line.c
+CFLAGS 	= -Wall -Wextra -Werror
 
-all:		$(LFT) obj $(NAME)
+SRCS	=	src/main.c \
+		src/validate_and_read_map.c \
+		src/validate_letters_map.c \
+		src/show_map.c \
+		src/error.c \
+		gnl/get_next_line_utils.c \
+		gnl/get_next_line.c
 
-$(NAME):	$(OBJ)
-			$(CC) $(FLAGS)  -fsanitize=address -o $@ $^ $(LIB)
+OBJS 	= ${SRCS:.c=.o}
 
-$(LFT):		
-			@echo " [ .. ] | Compiling libft.."
-			@make -s -C libft
-			@echo " [ OK ] | Libft ready!"
+OBJS_B 	= ${SRCS_B:.c=.o}
 
-obj:
-			@mkdir -p obj
+NAME 	= so_long.a
 
-obj/%.o:	src/%.c
-			$(CC) $(FLAGS) $(INC) -o $@ -c $<
+RM 		= rm -f
+
+.c.o:	
+	make -C libft
+	make -C mlx
+	gcc -c ${CFLAGS} -Imlx $< -o ${<:.c=.o}
+
+all:		$(NAME)
+
+${NAME}:	${OBJS}
+			ar rc ${NAME} ${OBJS}
+			gcc ${CFLAGS} -Lmlx -lmlx -framework OpenGL -framework AppKit libft/libft.a mlx/libmlx.a ${NAME} -o so_long
 
 clean:
 			@make -s $@ -C libft
 			@rm -rf $(OBJ) obj
 			@echo "object files removed."
+			make clean -C mlx
 
 fclean:		clean
 			@make -s $@ -C libft
 			@rm -rf $(NAME)
 			@echo "binary file removed."
+			make clean -C mlx
 
 re:			fclean all
 

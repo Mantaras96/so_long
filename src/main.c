@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
+/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 23:22:17 by albertmanta       #+#    #+#             */
-/*   Updated: 2022/03/28 22:44:49 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/03/29 19:44:44 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	main(int argc, char **argv)
 	{
 	global.map = validate_and_read_map(argv[1]);
 	validate_letters_map(&global);
-	printf("Width:%d Height:%d", global.width, global.height);
 	global.img = ft_calloc(sizeof(void *), ((global.width - 1) * global.height) + 1 );
 	set_mlx_and_window(&global);
 

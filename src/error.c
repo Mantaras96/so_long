@@ -6,11 +6,11 @@
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 23:23:18 by albertmanta       #+#    #+#             */
-/*   Updated: 2022/03/26 13:43:55 by amantara         ###   ########.fr       */
+/*   Updated: 2022/03/29 19:39:56 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void show_error_msg( char *str)
 {
