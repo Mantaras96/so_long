@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:38:08 by amantara          #+#    #+#             */
-/*   Updated: 2022/03/29 20:59:31 by amantara         ###   ########.fr       */
+/*   Updated: 2022/04/01 00:07:35 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
 
 # define SIZE_TEXTURE 32
 
-# defin
 typedef struct s_corde
 {
 	int		x;
@@ -42,6 +41,7 @@ typedef struct s_corde
 typedef struct s_global
 {
 	void		*mlx;
+	void		*win;
 	void		*window;
 	void		**img;
 	char		**map;
