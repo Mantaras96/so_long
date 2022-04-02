@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
+/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:38:08 by amantara          #+#    #+#             */
-/*   Updated: 2022/04/01 00:07:35 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/04/02 16:30:45 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,17 @@ void	**create_img_arr(t_global *global);
 
 void show_map(t_global *global);
 void set_mlx_and_window(t_global *global);
+
+//Mover.c
+int mover(int keycode, t_global *global);
+void move_main_char (t_global *global);
+int can_move(t_global *global);
+char get_direction(int keycode);
+void clean_img(t_global *global);
+//Main.c
+int close_event(int keycode, t_global *global);
+
+void	*transform_img(void *mlx, char *image);
 
 
 #endif

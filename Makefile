@@ -5,6 +5,7 @@ SRCS	=	src/main.c \
 		src/validate_letters_map.c \
 		src/show_map.c \
 		src/error.c \
+		src/mover.c \
 		gnl/get_next_line_utils.c \
 		gnl/get_next_line.c
 
@@ -29,7 +30,7 @@ ${NAME}:	${OBJS}
 
 clean:
 			@make -s $@ -C libft
-			@rm -rf $(OBJ) obj
+			@rm -rf  ./src/*.o
 			@echo "object files removed."
 			make clean -C mlx
 
