@@ -6,29 +6,30 @@
 /*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 23:22:17 by albertmanta       #+#    #+#             */
-/*   Updated: 2022/03/27 19:56:32 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/04/02 18:13:40 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-char **validate_and_read_map(char *filename){
-		ft_validate_name(filename);
-		return(read_map(filename));
+char	**validate_and_read_map(char *filename)
+{
+	ft_validate_name(filename);
+	return (read_map(filename));
 }
 
-char **read_map(char *filename){
+char	**read_map(char *filename)
+{
 	char	**map;
 	char	*line;
 	int		fd;
 
 	fd = open(filename, O_RDONLY);
-	if (fd == -1){
+	if (fd == -1)
 		show_error_msg("La ruta del mapa no es correcta");
-	}
 	map = ft_calloc(sizeof(char *), 1);
 	if (map == NULL)
-	show_error_msg("Error de memoria.\n");
+		show_error_msg("Error de memoria.\n");
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -41,9 +42,10 @@ char **read_map(char *filename){
 	return (map);
 }
 
-int ft_validate_name(char *filename){
-	
-	if (!ft_strnstr(filename, ".ber", ft_strlen(filename))){
+int	ft_validate_name(char *filename)
+{
+	if (!ft_strnstr(filename, ".ber", ft_strlen(filename)))
+	{
 		show_error_msg("El mapa no tiene la extension correcta");
 		return (1);
 	}
@@ -78,4 +80,3 @@ char	**arr_push(char **arr, char *str)
 	free(arr);
 	return (new);
 }
-

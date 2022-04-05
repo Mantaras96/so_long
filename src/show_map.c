@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   show_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 22:34:14 by albertmanta       #+#    #+#             */
-/*   Updated: 2022/04/02 16:30:25 by amantara         ###   ########.fr       */
+/*   Updated: 2022/04/04 23:03:36 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@ void	*transform_img(void *mlx, char *image)
 
 	img = mlx_xpm_file_to_image(mlx, image,
 			&img_size, &img_size);
-    
 	return (img);
 }
- 
-void set_mlx_and_window(t_global *global)
+
+void	set_mlx_and_window(t_global *global)
 {
 	global->character.direction = 'W';
-    show_map(global);
+	show_map(global);
 }
 
 void	*complete_map_img(t_global *vars, int i, int j)
@@ -51,10 +50,11 @@ void	*complete_map_img(t_global *vars, int i, int j)
 	return (NULL);
 }
 
-void    show_map(t_global *global){
-    int     count;
-    t_corde c;
-    t_corde coord;
+void	show_map(t_global *global)
+{
+	int		count;
+	t_corde	c;
+	t_corde	coord;
 
 	c.x = 0;
 	count = 0;
@@ -67,12 +67,10 @@ void    show_map(t_global *global){
 		while (global->map[c.x][c.y] != '\n' && global->map[c.x][c.y])
 		{
 			global->img[count] = complete_map_img(global, c.x, c.y);
-			if (global->img[count] == NULL){
+			if (global->img[count] == NULL)
 				exit (0);
-			}
-
-			mlx_put_image_to_window(global->mlx, global->win, global->img[count++],
-				coord.x, coord.y);
+			mlx_put_image_to_window(global->mlx, global->win,
+				global->img[count++], coord.x, coord.y);
 			coord.x += SIZE_TEXTURE;
 			c.y++;
 		}
