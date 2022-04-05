@@ -6,7 +6,7 @@
 /*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 11:17:11 by amantara          #+#    #+#             */
-/*   Updated: 2022/04/05 19:06:29 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/04/05 19:28:05 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int	can_move(t_global *global)
 		object = global->map[global->character.y + 1][global->character.x];
 	else if (global->character.direction == 'D')
 		object = global->map[global->character.y][global->character.x + 1];
-	
-	write(1, &object, 1);
 	if (object == '1')
 		return (0);
 	else if (object == 'E')
@@ -50,7 +48,7 @@ int	can_move(t_global *global)
 void	move_main_char(t_global *global)
 {
 	ft_putstr_fd("Movimientos: ", 1);
-	ft_putnbr_fd(++global->movements, 1);
+	ft_putnbr_fd(global->movements++, 1);
 	ft_putchar_fd('\n', 1);
 	global->map[global->character.y][global->character.x] = '0';
 	if (global->character.direction == 'W')
