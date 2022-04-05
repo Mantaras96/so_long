@@ -6,7 +6,7 @@
 /*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 22:34:14 by albertmanta       #+#    #+#             */
-/*   Updated: 2022/04/04 23:03:36 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/04/05 18:50:36 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,37 @@ void	set_mlx_and_window(t_global *global)
 	show_map(global);
 }
 
-void	*complete_map_img(t_global *vars, int i, int j)
+void	*get_sprite_char(t_global *global)
 {
-	if (vars->map[i][j] == '1')
-		return (transform_img(vars->mlx, "./assets/sprites/wall.xpm"));
-	else if (vars->map[i][j] == '0')
-		return (transform_img(vars->mlx, "./assets/sprites/water.xpm"));
-	else if (vars->map[i][j] == 'C')
+	if (global->character.direction == 'W')
+		return (transform_img(global->mlx, "./assets/sprites/char_u.xpm"));
+	else if (global->character.direction == 'S')
+		return (transform_img(global->mlx, "./assets/sprites/char_d.xpm"));
+	else if (global->character.direction == 'A')
+		return (transform_img(global->mlx, "./assets/sprites/char_l.xpm"));
+	else if (global->character.direction == 'D')
+		return (transform_img(global->mlx, "./assets/sprites/char_r.xpm"));
+	return (NULL);
+}
+
+void	*complete_map_img(t_global *global, int i, int j)
+{
+	if (global->map[i][j] == '1')
+		return (transform_img(global->mlx, "./assets/sprites/wall.xpm"));
+	else if (global->map[i][j] == '0')
+		return (transform_img(global->mlx, "./assets/sprites/water.xpm"));
+	else if (global->map[i][j] == 'C')
 	{
-		vars->collect++;
-		return (transform_img(vars->mlx, "./assets/sprites/collectable.xpm"));
+		global->collect++;
+		return (transform_img(global->mlx, "./assets/sprites/collectable.xpm"));
 	}
-	else if (vars->map[i][j] == 'E')
-		return (transform_img(vars->mlx, "./assets/sprites/escape.xpm"));
-	else if (vars->map[i][j] == 'P')
+	else if (global->map[i][j] == 'E')
+		return (transform_img(global->mlx, "./assets/sprites/escape.xpm"));
+	else if (global->map[i][j] == 'P')
 	{
-		vars->character.x = j;
-		vars->character.y = i;
-		return (transform_img(vars->mlx, "./assets/sprites/char_u.xpm"));
+		global->character.x = j;
+		global->character.y = i;
+		return (get_sprite_char(global));
 	}
 	return (NULL);
 }

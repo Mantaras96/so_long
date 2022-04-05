@@ -6,7 +6,7 @@
 /*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 11:17:11 by amantara          #+#    #+#             */
-/*   Updated: 2022/04/04 23:06:03 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/04/05 19:06:29 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ int	can_move(t_global *global)
 		object = global->map[global->character.y + 1][global->character.x];
 	else if (global->character.direction == 'D')
 		object = global->map[global->character.y][global->character.x + 1];
+	
+	write(1, &object, 1);
 	if (object == '1')
 		return (0);
-	if (object == 'E' )
+	else if (object == 'E')
 		return (2);
 	return (1);
 }
@@ -73,14 +75,12 @@ int	mover(int keycode, t_global *global)
 	{
 		global->character.direction = dir;
 		if (can_move(global) == 1)
-		{
 			move_main_char(global);
-		}
-	}
-	if (can_move(global) == 2 && global->collect == 0)
-	{
+		else if (can_move(global) == 2 && global->collect == 0)
+		{
 		mlx_destroy_window(global->mlx, global->win);
 		exit(0);
+		}
 	}
 	if (keycode == 53)
 	{

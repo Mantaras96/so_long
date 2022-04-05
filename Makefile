@@ -37,6 +37,7 @@ clean:
 fclean:		clean
 			@make -s $@ -C libft
 			@rm -rf $(NAME)
+			@rm -rf ./so_long
 			@echo "binary file removed."
 			make clean -C mlx
 
