@@ -6,7 +6,7 @@
 /*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 23:22:17 by albertmanta       #+#    #+#             */
-/*   Updated: 2022/04/02 18:13:40 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/04/05 19:24:53 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ char	**read_map(char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		show_error_msg("La ruta del mapa no es correcta");
+		show_error_msg("Error\n La ruta del mapa no es correcta");
 	map = ft_calloc(sizeof(char *), 1);
 	if (map == NULL)
-		show_error_msg("Error de memoria.\n");
+		show_error_msg("Error\n de memoria.\n");
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -46,7 +46,7 @@ int	ft_validate_name(char *filename)
 {
 	if (!ft_strnstr(filename, ".ber", ft_strlen(filename)))
 	{
-		show_error_msg("El mapa no tiene la extension correcta");
+		show_error_msg("Error\n El mapa no tiene la extension correcta");
 		return (1);
 	}
 	return (0);

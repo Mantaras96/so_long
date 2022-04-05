@@ -6,7 +6,7 @@
 /*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 22:34:14 by albertmanta       #+#    #+#             */
-/*   Updated: 2022/04/05 18:50:36 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/04/05 19:17:12 by albertmanta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ void	*transform_img(void *mlx, char *image)
 
 void	set_mlx_and_window(t_global *global)
 {
+	global->mlx = mlx_init();
+	global->win = mlx_new_window(global->mlx,
+			((global->width - 1) * SIZE_TEXTURE),
+			(global->height * SIZE_TEXTURE), "so_long");
 	global->character.direction = 'W';
 	show_map(global);
 }
