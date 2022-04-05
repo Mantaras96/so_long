@@ -6,7 +6,7 @@
 /*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 21:10:30 by albertmanta       #+#    #+#             */
-/*   Updated: 2022/03/26 13:39:19 by amantara         ###   ########.fr       */
+/*   Updated: 2022/04/05 19:40:36 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ char	*ft_strjoin2(char *left_str, char *buff)
 	}
 	if (!left_str || !buff)
 		return (NULL);
-	str = malloc(sizeof(char) * ((ft_strlen2(left_str) + ft_strlen2(buff)) + 1));
+	str = malloc(sizeof(char)
+			* ((ft_strlen2(left_str) + ft_strlen2(buff)) + 1));
 	if (str == NULL)
 		return (NULL);
 	i = -1;

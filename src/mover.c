@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mover.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertmantaras <albertmantaras@student.    +#+  +:+       +#+        */
+/*   By: amantara <amantara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 11:17:11 by amantara          #+#    #+#             */
-/*   Updated: 2022/04/05 19:28:05 by albertmanta      ###   ########.fr       */
+/*   Updated: 2022/04/05 19:43:26 by amantara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	can_move(t_global *global)
 void	move_main_char(t_global *global)
 {
 	ft_putstr_fd("Movimientos: ", 1);
-	ft_putnbr_fd(global->movements++, 1);
+	ft_putnbr_fd(++global->movements, 1);
 	ft_putchar_fd('\n', 1);
 	global->map[global->character.y][global->character.x] = '0';
 	if (global->character.direction == 'W')
@@ -76,8 +76,8 @@ int	mover(int keycode, t_global *global)
 			move_main_char(global);
 		else if (can_move(global) == 2 && global->collect == 0)
 		{
-		mlx_destroy_window(global->mlx, global->win);
-		exit(0);
+			mlx_destroy_window(global->mlx, global->win);
+			exit(0);
 		}
 	}
 	if (keycode == 53)
